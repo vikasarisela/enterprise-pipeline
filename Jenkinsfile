@@ -33,6 +33,18 @@ pipeline {
     }
 }
 
+stage('Test GitHub Dependabot API') {
+    steps {
+        sh '''
+            curl -s \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2026-03-10" \
+              "https://api.github.com/repos/$GITHUB_ORG/$GITHUB_REPO/dependabot/alerts"
+        '''
+    }
+}
+
         stage('2. Security Gate: Dependabot Check') {
             steps {
                 script {
