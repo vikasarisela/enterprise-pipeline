@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'agent-1' } // ◄ Forces everything to execute exclusively on your worker node
+    agent { label 'AGENT-1' } // ◄ Forces everything to execute exclusively on your worker node
     
     environment {
         AWS_ACCOUNT_ID = '193849563622' // Replace with your true AWS Account ID
