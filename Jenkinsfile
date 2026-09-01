@@ -2,10 +2,10 @@ pipeline {
     agent { label 'agent-1' } // ◄ Forces everything to execute exclusively on your worker node
     
     environment {
-        AWS_ACCOUNT_ID = '123456789012' // Replace with your true AWS Account ID
+        AWS_ACCOUNT_ID = '193849563622' // Replace with your true AWS Account ID
         AWS_REGION     = 'us-east-1'
         ECR_REPO_NAME  = 'enterprise-pipeline'
-        GITHUB_ORG     = 'your-github-username'
+        GITHUB_ORG     = 'vikasarisela'
         GITHUB_REPO    = 'enterprise-pipeline'
         
         // Pulled securely from Jenkins Master Credentials Store
