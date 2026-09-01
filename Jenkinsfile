@@ -10,7 +10,7 @@ pipeline {
         GITHUB_ORG      = 'vikasarisela'
         GITHUB_REPO     = 'enterprise-pipeline'
 
-        github-token = credentials('github-token')
+        GITHUB_TOKEN = credentials('github-token')
         SONAR_TOKEN  = credentials('sonar-token')
     }
 
@@ -26,7 +26,7 @@ pipeline {
     steps {
         sh '''
             curl -s \
-              -H "Authorization: token $github-token" \
+              -H "Authorization: token $GITHUB_TOKEN" \
               -H "Accept: application/vnd.github+json" \
               https://api.github.com/user
         '''
@@ -41,7 +41,7 @@ pipeline {
                     def response = sh(
                         script: '''
                             curl -s \
-                              -H "Authorization: token $github-token" \
+                              -H "Authorization: token $GITHUB_TOKEN" \
                               -H "Accept: application/vnd.github+json" \
                               "https://api.github.com/repos/$GITHUB_ORG/$GITHUB_REPO/dependabot/alerts"
                         ''',
