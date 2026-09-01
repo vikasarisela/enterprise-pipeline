@@ -26,7 +26,7 @@ pipeline {
                     echo "Querying GitHub Security API for active dependency risks..."
                     
                     def response = sh(
-                        script: "curl -s -H 'Authorization: token ${GITHUB_TOKEN}' https://github.com{GITHUB_ORG}/${GITHUB_REPO}/dependabot/alerts",
+                        script: "curl -s -H 'Authorization: token ${GITHUB_TOKEN}' https://github.com${GITHUB_ORG}/${GITHUB_REPO}/dependabot/alerts",
                         returnStdout: true
                     ).trim()
                     
