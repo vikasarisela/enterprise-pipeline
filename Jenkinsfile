@@ -41,7 +41,7 @@ pipeline {
                     def response = sh(
                         script: '''
                             curl -s \
-                              -H "Authorization: Bearer $GITHUB_TOKEN" \
+                              -H "Authorization: token $GITHUB_TOKEN" \
                               -H "Accept: application/vnd.github+json" \
                               "https://api.github.com/repos/$GITHUB_ORG/$GITHUB_REPO/dependabot/alerts"
                         ''',
