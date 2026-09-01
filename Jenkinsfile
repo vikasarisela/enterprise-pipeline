@@ -22,6 +22,17 @@ pipeline {
             }
         }
 
+        stage('Test GitHub Authentication') {
+    steps {
+        sh '''
+            curl -s \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              https://api.github.com/user
+        '''
+    }
+}
+
         stage('2. Security Gate: Dependabot Check') {
             steps {
                 script {
